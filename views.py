@@ -1,3 +1,4 @@
+
 import csv
 """Module for image brightness calculation."""
 import numpy as np
@@ -11,6 +12,7 @@ def main():
     with open("images.csv", "r") as file:
         reader = csv.DictReader(file)
         for row in reader:
+            brightness = calculate_brightness(f"{row["id"]}.png")
             print(row["id"])
 
 
