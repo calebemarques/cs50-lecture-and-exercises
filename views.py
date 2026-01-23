@@ -20,6 +20,7 @@ def calculate_brightness(filename):
 def catchname(name):
     name = input("name: ")
     names.append(name)
-    print(names)
-
-main()
+    print(names) 
+    
+if __name__ == "__main__":
+   main()
