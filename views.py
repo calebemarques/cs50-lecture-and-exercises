@@ -3,10 +3,10 @@ import numpy as np
 import csv
 from PIL import Image
 
-names = []
+
 
 def main():
-    catchname()
+    
     with open("images.csv", "r") as file:
          reader = csv.DictReader(file)
          for row in reader:
@@ -17,15 +17,8 @@ def calculate_brightness(filename):
         brightness = np.mean(np.array(img.convert("L"))) / 255
     return brightness
 
-def print_name(name):
-    print(f"Name: {name}")
 
-
-
-def catchname(name):
-    name = input("name: ")
-    names.append(name)
-    print(names) 
+    
     
 if __name__ == "__main__":
    main()
