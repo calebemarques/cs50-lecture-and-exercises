@@ -17,6 +17,11 @@ def calculate_brightness(filename):
         brightness = np.mean(np.array(img.convert("L"))) / 255
     return brightness
 
+def print_name(name):
+    print(f"Name: {name}")
+
+
+
 def catchname(name):
     name = input("name: ")
     names.append(name)
