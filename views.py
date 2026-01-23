@@ -1,6 +1,7 @@
+import csv
 """Module for image brightness calculation."""
 import numpy as np
-import csv
+
 from PIL import Image
 
 
@@ -8,10 +9,11 @@ from PIL import Image
 def main():
     
     with open("images.csv", "r") as file:
-         reader = csv.DictReader(file)
-         for row in reader:
-             print(row)
-         
+        reader = csv.DictReader(file)
+        for row in reader:
+            print(row["id"])
+
+
 def calculate_brightness(filename):
     with Image.open(filename) as img:
         brightness = np.mean(np.array(img.convert("L"))) / 255
