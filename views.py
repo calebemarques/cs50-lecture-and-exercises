@@ -1,28 +1,44 @@
 
 import csv
 """Module for image brightness calculation."""
+# Import numpy for numerical operations and array manipulation
 import numpy as np
 
+# Import Image from PIL (Pillow) for image processing
 from PIL import Image
 
 
 
 def main():
-    
-    with open("images.csv", "r") as file:
+    # Open the CSV file that contains image metadata (IDs and other information)
+    with open("images.csv", "r", encoding="utf-8") as file:
+        # Create a CSV reader that treats the first row as column headers (DictReader)
         reader = csv.DictReader(file)
+        # Loop through each row in the CSV file
         for row in reader:
-            brightness = calculate_brightness(f"{row["id"]}.png")
+            # Call calculate_brightness function with the image filename (ID + .jpeg extension)
+            brightness = calculate_brightness(f"{row["id"]}.jpeg")
+            # Print the image ID to track progress
             print(row["id"])
+            # Print the calculated brightness value (0.0 = dark, 1.0 = bright)
+            print(f"Brightness: {brightness}")
 
 
 def calculate_brightness(filename):
+    # Open the image file using PIL and use 'with' to ensure it closes properly
     with Image.open(filename) as img:
-        brightness == np.mean(np.array(img.convert("L"))) / 255
+        # Convert the image to grayscale ("L" mode) which gives luminance values (0-255)
+        # Then convert to numpy array for mathematical operations
+        # Calculate the mean (average) of all pixel brightness values
+        # Divide by 255 to normalize the result to a 0.0 to 1.0 scale
+        brightness = np.mean(np.array(img.convert("L"))) / 255
+    # Return the normalized brightness value
     return brightness
 
 
     
     
+# Check if this script is being run directly (not imported as a module)
 if __name__ == "__main__":
+   # Call the main function to start the program
    main()
