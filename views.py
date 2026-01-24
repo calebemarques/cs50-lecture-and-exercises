@@ -11,18 +11,19 @@ from PIL import Image
 
 def main():
     # Open the CSV file that contains image metadata (IDs and other information)
-    with open("images.csv", "r", encoding="utf-8") as file:
+    with open("images.csv", "r", encoding="utf-8") as views , open("analysis.csv", "w", encoding="utf-8") as analysis:
         # Create a CSV reader that treats the first row as column headers (DictReader)
-        reader = csv.DictReader(file)
+        reader = csv.DictReader(views)
         # Loop through each row in the CSV file
         for row in reader:
             # Call calculate_brightness function with the image filename (ID + .jpeg extension)
             brightness = calculate_brightness(f"{row["id"]}.jpeg")
+            
             # Print the image ID to track progress
             print(row["id"])
             # Print the calculated brightness value (0.0 = dark, 1.0 = bright)
             print(f"Brightness: {brightness}")
-
+            print(round(brightness, 2))# Round brightness to 2 decimal places for cleaner output
 
 def calculate_brightness(filename):
     # Open the image file using PIL and use 'with' to ensure it closes properly
