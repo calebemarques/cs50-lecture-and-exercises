@@ -14,13 +14,13 @@ def main():
     with open("images.csv", "r", encoding="utf-8") as views , open("analysis.csv", "w", encoding="utf-8") as analysis:
         # Create a CSV reader that treats the first row as column headers (DictReader)
         reader = csv.DictReader(views)
-        writer = csv.writer(analysis, fieldnames=reader.fieldnames + ["brightness"])
-        writer.writerow(["id", "brightness"])
+        writer = csv.DictWriter(analysis, fieldnames=reader.fieldnames + ["brightness"])
+        writer.writeheader()
         # Loop through each row in the CSV file
         for row in reader:
             # Call calculate_brightness function with the image filename (ID + .jpeg extension)
             brightness = calculate_brightness(f"{row["id"]}.jpeg")
-          #  writer.writerow([row["id"], round(brightness, 2)])# Write the image ID and rounded brightness to the analysis CSV
+            writer.writerow([row["id"], round(brightness, 2)])# Write the image ID and rounded brightness to the analysis CSV
             # Print the image ID to track progress
             print(row["id"])
             # Print the calculated brightness value (0.0 = dark, 1.0 = bright)
