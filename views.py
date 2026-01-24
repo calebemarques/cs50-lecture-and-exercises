@@ -18,7 +18,7 @@ def main():
 
 def calculate_brightness(filename):
     with Image.open(filename) as img:
-        brightness = np.mean(np.array(img.convert("L"))) / 255
+        brightness == np.mean(np.array(img.convert("L"))) / 255
     return brightness
 
 
