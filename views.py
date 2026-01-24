@@ -20,7 +20,13 @@ def main():
         for row in reader:
             # Call calculate_brightness function with the image filename (ID + .jpeg extension)
             brightness = calculate_brightness(f"{row["id"]}.jpeg")
-            writer.writerow([row["id"], round(brightness, 2)])# Write the image ID and rounded brightness to the analysis CSV
+            writer.writerow({
+                "id": row["id"],
+                "english_title": row["english_title"],
+                "portuguese_title": row["portuguese_title"],
+                
+                "brightness": brightness
+                             })
             # Print the image ID to track progress
             print(row["id"])
             # Print the calculated brightness value (0.0 = dark, 1.0 = bright)
