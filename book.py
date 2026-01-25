@@ -4,8 +4,8 @@ def main():
         # Open the input file miraa.txt for reading
         content = miraa.readlines()
         # Read all lines from the file into a list
-        declaração = content[33:36]
-        # Extract lines 34-36 (0-based indices 33-35) into declaração
+        declaração = content[33:49]
+        # Extract lines 34-49 (0-based indices 33-48) into declaração
         print(declaração[0])
         # Print the first extracted line (line 34)
         print(declaração[1])
@@ -22,7 +22,7 @@ def main():
     # Assign the 37th line to phrase4
     with open("ainda_bem.txt", "w") as ainda_bem:
         # Open the output file ainda_bem.txt for writing
-        ainda_bem.write("" + phrase1 + phrase2)
+        ainda_bem.writelines(declaração)
         # Write phrase1 and phrase2 concatenated to the output file
 
 
