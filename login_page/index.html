@@ -1,0 +1,40 @@
+<!-- Login Page HTML Structure -->
+<!-- This file contains the HTML markup for the login page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Login Page</title>
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main container for the login form -->
+    <div class="login-container">
+        <!-- Login heading -->
+        <h2>Login</h2>
+        <!-- Login form with id for JavaScript interaction -->
+        <form id="loginForm">
+            <!-- Username input group -->
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <!-- Password input group -->
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <!-- Submit button -->
+            <button type="submit">Login</button>
+        </form>
+        <!-- Message paragraph for displaying login results -->
+        <p id="message"></p>
+    </div>
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
