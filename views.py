@@ -18,20 +18,24 @@ def main():
         writer.writeheader()
         # Loop through each row in the CSV file
         for row in reader:
+            row["brightness"] = round (calculate_brightness(f"{row["id"]}.jpeg"),2)
+            
+            writer.writerow(row)
             # Call calculate_brightness function with the image filename (ID + .jpeg extension)
-            brightness = calculate_brightness(f"{row["id"]}.jpeg")
-            writer.writerow({
+            
+            """ 
+           writer.writerow({
                 "id": row["id"],
                 "english_title": row["english_title"],
                 "portuguese_title": row["portuguese_title"],
                 
-                "brightness": brightness
-                             })
+                "brightness": round(brightness, 2)
+                             })"""
             # Print the image ID to track progress
             print(row["id"])
             # Print the calculated brightness value (0.0 = dark, 1.0 = bright)
-            print(f"Brightness: {brightness}")
-            print(round(brightness, 2))# Round brightness to 2 decimal places for cleaner output
+           # print(f"Brightness: {row}")
+           # print(round(brightness, 2))# Round brightness to 2 decimal places for cleaner output
 
 def calculate_brightness(filename):
     # Open the image file using PIL and use 'with' to ensure it closes properly
