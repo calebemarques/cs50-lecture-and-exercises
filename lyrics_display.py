@@ -20,4 +20,4 @@ lines = lyrics.split('\n')
 
 for line in lines:
     print(line)
-    time.sleep(1.9)  # Adjust the delay as needed for timing
+    time.sleep(1.3)  # Adjust the delay as needed for timing
