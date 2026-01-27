@@ -1,12 +1,31 @@
-# Validate Email Address
+ #Import regular expressions module
+from email_validator import validate_email, EmailNotValidError
+import  re
+ #Validate Email Address
 email = input("Enter your email address: ").strip()
 
-username, domain = email.split("@")
-try:
-    if username and "." in domain and len(domain.split(".")[-1]) >= 2: 
-        print("Valid email address.")
-    else:
-        print("Invalid email address: Username part is empty.")
-except ValueError:
-    print("Invalid email address: Missing @ symbol or domain.")
-# validate.py
+# #Simple regex pattern to check for "@" followed by at least two characters
+if re.search(".+@.+", email): #Check if email matches the pattern, ".+@.+" = at least one character before and after "@"
+    print("Valid email address.") #If it matches, print valid message
+else: #If it doesn't match
+    print("Invalid email address.") #Print invalid message
+
+    """
+      Python has many ways to solve a problem like email validation.
+     Python has different ways to validate email addresses, including using libraries like `validate_email` or `email-validator` for more comprehensive checks.
+     However, for basic validation, regex can be sufficient.
+     Note that this regex is quite simple and may not cover all valid email formats or exclude all invalid ones.
+     For production-level code, consider using more robust validation methods.
+     let me show you an example using the `email-validator` library:
+     You can install it via pip:
+     pip install email-validator
+     Then you can use it as follows:
+     
+     try:
+         valid = validate_email(email)
+         email = valid.email
+         print("Valid email address.")
+     except EmailNotValidError as e:
+         print(str(e))
+     This approach provides a more comprehensive validation of email addresses.
+     """
