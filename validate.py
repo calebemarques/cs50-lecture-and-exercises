@@ -1,11 +1,11 @@
  #Import regular expressions module
-from email_validator import validate_email, EmailNotValidError
+#from email_validator import validate_email, EmailNotValidError
 import  re
  #Validate Email Address
 email = input("Enter your email address: ").strip()
 
 # #Simple regex pattern to check for "@" followed by at least two characters
-if re.search(".+@.+", email): #Check if email matches the pattern, ".+@.+" = at least one character before and after "@"
+if re.search(r"^.+@.+\.edu$", email): #Check if email matches the pattern, ".+@.+" = at least one character before and after "@", ".*@.*" = zero or more characters before and after "@"
     print("Valid email address.") #If it matches, print valid message
 else: #If it doesn't match
     print("Invalid email address.") #Print invalid message
