@@ -5,8 +5,23 @@ import  re
 email = input("Enter your email address: ").strip()
 
  #Simple regex pattern to check for "@" followed by at least two characters
-if re.search(r"^\w+@\w+\.(com|edu|gov|net|gov|br|aluno|ce)$", email): #Check if email matches the pattern, ".+@.+" = at least one character before and after "@", ".*@.*" = zero or more characters before and after "@"
+if re.search(r"^\w+@(\w+\.)?\w+\.(com|edu|gov|net|gov|br|aluno|ce)$", email, re.IGNORECASE): #Check if email matches the pattern, ".+@.+" = at least one character before and after "@", ".*@.*" = zero or more characters before and after "@"
 
+
+    """
+        re.IGNORECASE makes the regex case-insensitive, so it matches both uppercase and lowercase letters.
+    
+        
+        This regex pattern checks for a basic email structure:
+        
+        - Starts with one or more alphanumeric characters (letters, digits, and underscores).
+        - Followed by the "@" symbol.
+        - Followed by one or more alphanumeric characters.
+        - Ends with a domain suffix such as ".com", ".edu", ".gov", ".net", ".br", ".aluno", or ".ce".
+        Note that this is a simplified validation and may not cover all valid email formats or exclude all invalid ones.
+        For more comprehensive email validation, consider using specialized libraries or more complex regex patterns.
+    """
+# comment section end
 
 ################################## Regex Pattern Explanation ##################################
 # ^\w+ = start with one or more alphanumeric characters (letters, digits, and underscores)
@@ -32,7 +47,7 @@ if re.search(r"^\w+@\w+\.(com|edu|gov|net|gov|br|aluno|ce)$", email): #Check if 
 # [^@]+ = at least one character that is not "@" before the "@" symbol , [^@]+ = at least one character that is not "@" after the "@" symbol , \.edu$ = ends with ".edu" , \.com$ = ends with ".com"
      # ",{1}.*@.*" = exactly one "@" symbol with any characters before and after it
 
-     print("Valid email address.") #If it matches, print valid message
+    print("Valid email address.") #If it matches, print valid message
 else: #If it doesn't match
     print("Invalid email address.") #Print invalid message
 
