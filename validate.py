@@ -4,11 +4,34 @@ import  re
  #Validate Email Address
 email = input("Enter your email address: ").strip()
 
-#Simple regex pattern to check for "@" followed by at least two characters
-if re.search(r"^\w+@\w+\.com$", email): #Check if email matches the pattern, ".+@.+" = at least one character before and after "@", ".*@.*" = zero or more characters before and after "@"
+ #Simple regex pattern to check for "@" followed by at least two characters
+if re.search(r"^\w+@\w+\.(com|edu|gov|net|gov|br|aluno|ce)$", email): #Check if email matches the pattern, ".+@.+" = at least one character before and after "@", ".*@.*" = zero or more characters before and after "@"
+
+
+################################## Regex Pattern Explanation ##################################
+# ^\w+ = start with one or more alphanumeric characters (letters, digits, and underscores)
+# @ = followed by "@" symbol
+# \w+ = followed by one or more alphanumeric characters (letters, digits, and underscores)
+# \.com$ = ends with ".com"
 # "[a-z]" = lowercase letters, "[A-Z]" = uppercase letters, "[0-9]" = digits,
+# \w = alphanumeric characters (letters, digits, and underscores)
+# ^ = start of the string , $ = end of the string ,
+# \s = whitespace characters , \S = non-whitespace characters ,
+# \d = digits , \D = non-digits ,
+# . = any character except newline ,
+# * = zero or more occurrences of the preceding element ,
+# + = one or more occurrences of the preceding element ,
+# ? = zero or one occurrence of the preceding element ,
+# {n} = exactly n occurrences of the preceding element ,
+# {n,} = n or more occurrences of the preceding element ,
+# {n,m} = between n and m occurrences of the preceding element ,
+# | = logical OR ,
+# () = grouping ,
+# (?: ) = non-capturing group ,
+# [] = character class 
 # [^@]+ = at least one character that is not "@" before the "@" symbol , [^@]+ = at least one character that is not "@" after the "@" symbol , \.edu$ = ends with ".edu" , \.com$ = ends with ".com"
      # ",{1}.*@.*" = exactly one "@" symbol with any characters before and after it
+
      print("Valid email address.") #If it matches, print valid message
 else: #If it doesn't match
     print("Invalid email address.") #Print invalid message
