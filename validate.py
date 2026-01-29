@@ -17,7 +17,7 @@ if re.search(r"^m\w+@(\w+\.)?\w+\.(com|edu|gov|net|gov|br|aluno|ce)$", email, re
         - Starts with one or more alphanumeric characters (letters, digits, and underscores).
         - Followed by the "@" symbol.
         - Followed by one or more alphanumeric characters.
-        - Ends with a domain suffix such as ".com", ".edu", ".gov", ".net", ".br", ".aluno", or ".ce".
+        - Ends with a  domain suffix such as ".com", ".edu", ".gov", ".net", ".br", ".aluno", or ".ce".
         Note that this is a simplified validation and may not cover all valid email formats or exclude all invalid ones.
         For more comprehensive email validation, consider using specialized libraries or more complex regex patterns.
     """
