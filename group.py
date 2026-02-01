@@ -9,7 +9,7 @@ locations = {"+1": "United States/Canada",
              "+505": "Nicaragua"
              }
 def main():
-    pattern = r"(\+\d{1,3}) \d{3}-\d{3}-\d{4}"
+    pattern = r"(\+\d{1,3}) \d{3}-\d{3}-\d{4}" #\d{1,3} means 1 to 3 digits "\d" means digit , \d{3} means exactly 3 digits
     number = input("Number:  ")
 
     match = re.search(pattern, number)
