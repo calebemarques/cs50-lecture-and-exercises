@@ -2,7 +2,7 @@ import re
 # Validate hexadecimal color codes
 def main():
     code = input("hexadecimal color code: ")
-    pattern = r"#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b"  
+    pattern = r"#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b"  #\b = word boundary , make sure no extra characters follow the code
     match = re.search(pattern, code)# Complete the regex pattern to validate hexadecimal color codes
     if match: # if match:
         print(f"Valid. Matched with {match.group(1)}")# Print whether the input is a valid hexadecimal color code
