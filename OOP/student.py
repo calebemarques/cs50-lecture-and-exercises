@@ -1,15 +1,20 @@
+#OOP = Object Oriented Programming = create your own data types
+class Student:
+    ... # TODO        
+
+  
 def  main():
     student = get_students()
-    if student["name"] == "Padma":
-        student["house"] = "Ravenclaw"
-    print(f"{student['name']} from {student["house"]}")
+    print(f"{student.name} from {student.house}")
 
 
 def get_students():
-   name = input("Name: ")
-   house = input("House:")
-   return{"name": name,"house": house}  
+    student = Student()# create an instance of the Student class // an object
+    student.name = input("Name: ")
+    student.house = input("House: ")
+    return student
 
+#class = create your own data type
 
 
 
