@@ -1,6 +1,8 @@
 #OOP = Object Oriented Programming = create your own data types
 class Student:
-    ... # TODO        
+    def __init__(self, name, house):
+        self.name = name
+        self.house = house       
 
   
 def  main():
@@ -9,9 +11,9 @@ def  main():
 
 
 def get_students():
-    student = Student()# create an instance of the Student class // an object
-    student.name = input("Name: ")
-    student.house = input("House: ")
+    name = input("Name: ")
+    house = input("House: ")
+    Student(name,house)
     return student
 
 #class = create your own data type
