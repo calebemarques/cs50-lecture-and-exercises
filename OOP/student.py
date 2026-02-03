@@ -1,6 +1,9 @@
 #OOP = Object Oriented Programming = create your own data types
+
 class Student:
     def __init__(self, name, house):
+        if not name and not house:
+            raise ValueError("Missing name and house")
         self.name = name
         self.house = house       
 
@@ -13,8 +16,7 @@ def  main():
 def get_students():
     name = input("Name: ")
     house = input("House: ")
-    Student(name,house)
-    return student
+    return Student(name,house)
 
 #class = create your own data type
 
