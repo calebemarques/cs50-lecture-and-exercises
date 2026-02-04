@@ -1,20 +1,23 @@
 #OOP = Object Oriented Programming = create your own data types
 
 # Define the Student class to represent a student with name and house
+from re import match
+from unittest import case
+
+
 class Student:
     # Constructor method to initialize a Student object
     # Parameters: name (string), house (string)
-    def __init__(self, name, house, patronus):
+    def __init__(self, name, house):
         # Validate that name is provided
         if not name:
             raise ValueError("Missing name")
-        # Validate that house is one of the valid Hogwarts houses
-        if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin" ]:
-            raise ValueError("Invalid house")
+        # Validate that house is one of the valid Hogwarts houses // unnecessary because of setter method
+        """ if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin" ]:
+            raise ValueError("Invalid house") """
         # Assign the validated name and house to the object
         self.name = name
         self.house = house
-        self.patronus = patronus
     """
     __str__ = string representation of the object
     when we print the object, this method is called
@@ -29,9 +32,17 @@ class Student:
       # Method to return a string representation of the Student object
     def __str__(self):
         # Return a formatted string with the student's name and hous4
-        return f"{self.name} from {self.house} and their patronus is {self.patronus}." 
-       
-
+        return f"{self.name} from {self.house}" 
+    # Getter method for the house attribute
+    @property #@property = decorator = modifies the behavior of the method below it
+    def house(self):
+        return self.house
+    # Setter method for the house attribute
+    @house.setter #@house.setter = decorator = modifies the behavior of the method below it
+    def house(self, house): # house = new value to set // self = current object
+        if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin" ]:
+            raise ValueError("Invalid house")
+        self.house = house 
   
        
 
@@ -39,6 +50,8 @@ class Student:
 def  main():
     # Get a student object from user input
     student = get_students()
+    student.house = "Number Four, Privet Drive"
+    
     # Print the student object (which calls __str__)
     print(student)
 
@@ -49,9 +62,7 @@ def get_students():
     name = input("Name: ")
     # Prompt user for house
     house = input("House: ")
-    # Prompt user for patronus
-    patronus = input("Patronus: ")
-    return Student(name,house,patronus)
+    return Student(name,house)
 
 #class = create your own data type
 
