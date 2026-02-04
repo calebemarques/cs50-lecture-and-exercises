@@ -12,7 +12,7 @@ class Student:
         # Validate that name is provided
         if not name:
             raise ValueError("Missing name")
-        # Validate that house is one of the valid Hogwarts houses // unnecessary because of setter method
+        # Validate that house is one of the valid Hogwarts houses// unnecessary because of setter method
         """ if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin" ]:
             raise ValueError("Invalid house") """
         # Assign the validated name and house to the object
@@ -33,16 +33,26 @@ class Student:
     def __str__(self):
         # Return a formatted string with the student's name and hous4
         return f"{self.name} from {self.house}" 
+    
+    @property
+    def name(self):
+        return self._name
+    
+    @name.setter
+    def name(self, name):
+        if not name:
+            raise ValueError("Missing name")
+        self._name = name
     # Getter method for the house attribute
     @property #@property = decorator = modifies the behavior of the method below it
     def house(self):
-        return self.house
+        return self._house # return the value of the private attribute _house// _ = convention to indicate private attribute
     # Setter method for the house attribute
     @house.setter #@house.setter = decorator = modifies the behavior of the method below it
     def house(self, house): # house = new value to set // self = current object
         if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin" ]:
             raise ValueError("Invalid house")
-        self.house = house 
+        self._house = house # _house = private attribute to store the value of house
   
        
 
@@ -50,7 +60,7 @@ class Student:
 def  main():
     # Get a student object from user input
     student = get_students()
-    student.house = "Number Four, Privet Drive"
+   # student.house = "Number Four, Privet Drive"
     
     # Print the student object (which calls __str__)
     print(student)
