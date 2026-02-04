@@ -10,8 +10,8 @@ class Student:
     # Parameters: name (string), house (string)
     def __init__(self, name, house):
         # Validate that name is provided
-        if not name:
-            raise ValueError("Missing name")
+        """  if not name:
+            raise ValueError("Missing name")""" #unnecessary because of setter method
         # Validate that house is one of the valid Hogwarts houses// unnecessary because of setter method
         """ if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin" ]:
             raise ValueError("Invalid house") """
@@ -60,7 +60,7 @@ class Student:
 def  main():
     # Get a student object from user input
     student = get_students()
-   # student.house = "Number Four, Privet Drive"
+    student._house = "Number Four, Privet Drive" #directly accessing private attribute (not recommended)
     
     # Print the student object (which calls __str__)
     print(student)
