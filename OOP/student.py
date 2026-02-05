@@ -62,7 +62,10 @@ def  main():
     student = get_students()
     student._house = "Number Four, Privet Drive"#directly accessing private attribute (not recommended)/ _ = don't touch what's private
  
-    
+
+
+
+
     # Print the student object (which calls __str__)
     print(student)
 
