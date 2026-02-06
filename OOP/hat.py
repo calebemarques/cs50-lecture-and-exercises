@@ -1,4 +1,4 @@
-import random
+import random # import random library to randomize the choice
 class Hat:
     def __init__(self): # initialize the class
         print("The sorting hat is ready to sort students into houses.")
