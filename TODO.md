@@ -1,1 +1,7 @@
-
+- [x] Implement Hat class in OOP/hat.py with sorting logic
+- [x] Import Student class from student.py
+- [x] Define questions for bravery, ambition, wisdom, loyalty
+- [x] Assign points to houses based on answers
+- [x] Determine house with highest points
+- [x] Implement main function to get name, sort, and print student
+- [x] Add comments to explain the code
