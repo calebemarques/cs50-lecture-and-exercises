@@ -1,7 +1,7 @@
-- [x] Implement Hat class in OOP/hat.py with sorting logic
-- [x] Import Student class from student.py
-- [x] Define questions for bravery, ambition, wisdom, loyalty
-- [x] Assign points to houses based on answers
-- [x] Determine house with highest points
-- [x] Implement main function to get name, sort, and print student
-- [x] Add comments to explain the code
+- Add comments to import statements (done)
+- Fix syntax error in **init** (add colon) (done)
+- Add comments to calcular_imc function (done)
+- Add comments to avaliar_imc function (done)
+- Add comments to calcular_faixa_peso_saudavel function (done)
+- Add comments to AplicacaoIMC class **init** method (done)
+- Add comments to the rest of the class if any (code incomplete, no more class code)
